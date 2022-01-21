@@ -34,9 +34,10 @@
                     @Html.DisplayFor(modelItem => item.Amount)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
+                   <a class="btn btn-primary" onclick="showInPopup('@Url.Action("AddOrEdit","Transaction",new {id = item.TransactionId},Context.Request.Scheme)','Update Transaction')">Edit</a>
+                   <form asp-action="Delete" asp-route-id="@item.TransactionId" onsubmit="return jQueryAjaxDelete(this);">
+                       <input type = "submit" value = "Delete" class="btn btn-danger"/>
+                   </form>
                 </td>
             </tr>
     }
