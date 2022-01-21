@@ -1,0 +1,15 @@
+﻿@model IEnumerable<jQueryAjaxCRUDInASPNETCore.Models.TransactionModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transaction History</h1>
+
+<p>
+    <a class="btn btn-primary" onclick="showInPopup('@Url.Action("AddOrEdit","Transaction",null,Context.Request.Scheme)','New Transaction')">Create New</a>
+</p>
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll",Model)
+</div>
