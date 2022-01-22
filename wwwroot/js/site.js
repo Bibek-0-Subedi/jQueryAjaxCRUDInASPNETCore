@@ -48,6 +48,7 @@ jQueryAjaxDelete = form => {
                 url: form.action,
                 success: function (res) {
                     $("#view-all").html(res.html);
+
                        
                 },
                 error: function (err) {
